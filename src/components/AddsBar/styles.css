@@ -1,0 +1,8 @@
+.add-bar-container{
+    background-color: black;
+    color:white;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
