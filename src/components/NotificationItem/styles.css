@@ -1,0 +1,103 @@
+.demo .notificationsFrame .content .item {
+    position: relative;
+    z-index: 2;
+    margin: 20px 30px 30px 70px;
+    display: block;
+    /*border-radius: 50%;
+   border: 5px solid #ecf0f1;
+   box-sizing: border-box;
+   position: absolute;
+   height: 20px;
+   width: 20px;
+   background: #fff;
+   border: 2px solid #5F98CD;
+   box-shadow: 0 0 0 3px #fff;*/
+}
+
+.demo .notificationsFrame .content .item:hover {
+    color: #5f98cd;
+    cursor: pointer;
+}
+
+.demo .notificationsFrame .content .item .circle {
+    box-sizing: border-box;
+    position: absolute;
+    height: 11px;
+    width: 11px;
+    background: #fff;
+    border: 2px solid #5f98cd;
+    box-shadow: 0 0 0 3px #fff;
+    border-radius: 6px;
+    top: 0;
+    left: -20px;
+}
+
+.demo .notificationsFrame .content .item .avatar {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    left: -49px;
+}
+
+.demo .notificationsFrame .content .item .avatar img {
+    width: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.demo .notificationsFrame .content .item .time {
+    display: block;
+    font-size: 11px;
+    line-height: 11px;
+    margin-bottom: 2px;
+}
+
+.demo .notificationsFrame .content .item p {
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0px 40px 0px 0px;
+    font-family: "Open Sans", Lora, Times, no-serif;
+}
+
+.demo .notificationsFrame .content .item p b {
+    font-weight: 600;
+}
+
+.demo .notificationsFrame .content .item .right {
+    position: absolute;
+    right: 5px;
+    font-size: 11px;
+    top: 11px;
+}
+
+.demo .notificationsFrame .content .item .commentCount {
+    position: absolute;
+    right: 15px;
+    font-size: 12px;
+    top: 11px;
+}
+
+.demo .notificationsFrame .content .item .commentCount:after {
+    content: "\f075";
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 20px;
+    color: #ebebeb;
+    top: -50%;
+    left: 100%;
+    margin-left: 10px;
+    z-index: 3;
+}
+
+.demo .notificationsFrame .content .item .commentCount:hover:after {
+    color: lightblue;
+}

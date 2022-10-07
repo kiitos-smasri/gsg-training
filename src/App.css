@@ -1,39 +1,97 @@
-.App {
-  text-align: center;
-  color:red
+.demo {
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
+.demo .notificationsFrame {
+  z-index: 2;
+  width: 100%;
+  top: 20px;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  margin-bottom: 40px;
+}
+
+.demo .notificationsFrame.show-menu {
+  transform: translate3d(150px, 0, 0);
+}
+
+.demo .notificationsFrame .searchInput {
+  border: 10px solid red;
+  box-sizing: border-box;
+  position: absolute;
+  top: 13px;
+  right: 55px;
+  width: 200px;
+  height: 34px;
+  border-radius: 17px;
+  border: none;
+  background: #fff;
+  padding: 0 17px;
+  font-size: 13px;
+  color: #666;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(15px);
+  opacity: 0;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.demo .notificationsFrame .searchInput:focus {
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.demo .notificationsFrame .searchInput.active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: all;
 }
 
-.App-link {
-  color: #61dafb;
+.demo .notificationsFrame .content {
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.demo .notificationsFrame .content .line {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  bottom: 0;
+  width: 3px;
+  background: #ebebeb;
+}
+
+
+.demo .notificationsFrame .footer {
+  position: relative;
+  background: #fff;
+  margin: auto;
+  height: 30px;
+  border-top: 1px solid #eee;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.demo .notificationsFrame .footer button {
+  background: #eee;
+  position: absolute;
+  width: 100%;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  border: 0;
+}
+
+.demo .notificationsFrame .footer button i {
+  margin: 0 10px;
+}
+
+.product-title {
+  color: red
+}
+
+.product-blue {
+  color: blue
 }

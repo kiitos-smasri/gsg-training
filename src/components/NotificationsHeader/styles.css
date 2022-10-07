@@ -1,0 +1,85 @@
+.demo .notificationsFrame .header {
+    position: relative;
+    height: 60px;
+    background: #5f98cd;
+    padding-top: 0;
+}
+
+.demo .notificationsFrame .header .menuIcon {
+    position: absolute;
+    width: 29px;
+    height: 15px;
+    top: 23px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.demo .notificationsFrame .header .menuIcon:hover .dashTop,
+.demo .notificationsFrame .header .menuIcon:hover .dashBottom,
+.demo .notificationsFrame .header .menuIcon:hover .circle {
+    background: #fff;
+}
+
+.demo .notificationsFrame .header .menuIcon .dashTop {
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    top: 0;
+    left: 0;
+    background: #b2daff;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.demo .notificationsFrame .header .menuIcon .dashBottom {
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    top: 0;
+    left: 0;
+    background: #b2daff;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    width: 29px;
+    top: auto;
+    bottom: 0;
+}
+
+.demo .notificationsFrame .header .menuIcon .circle {
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    border-radius: 4px;
+    top: -2px;
+    right: 0;
+    background: #b2daff;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.demo .notificationsFrame .header .title {
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+.demo .notificationsFrame .header .searchIcon {
+    position: absolute;
+    z-index: 3;
+    font-size: 21px;
+    color: #fff;
+    top: 18px;
+    right: 20px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.demo .notificationsFrame .header .searchIcon:hover {
+    color: #fff;
+}
