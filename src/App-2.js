@@ -1,7 +1,5 @@
 import "./App.css";
 import React from "react";
-import SectionHeader from "./components/SectionHeader";
-import DataBox from "./components/DataBox";
 
 const App = () => {
   return (

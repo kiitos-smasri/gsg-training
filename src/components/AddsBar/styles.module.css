@@ -1,4 +1,4 @@
-.add-bar-container{
+.addBarContainer{
     background-color: black;
     color:white;
     height: 40px;
@@ -6,3 +6,4 @@
     justify-content: center;
     align-items: center;
 }
+

@@ -95,3 +95,46 @@
 .product-blue {
   color: blue
 }
+
+.main-container{
+  padding: 50px;
+  position: relative;
+}
+
+.bookmark{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.main-wrapper{
+  padding: 0 50px;
+  position: relative;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0
+}
+.bookmark{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right-area{
+  position: absolute;
+  right:0;
+    height: 100px;
+    top: 163px;
+    z-index: -1;
+    width: 200px;
+    background-color: red;
+    border-bottom-left-radius: 100px;
+}
+
+@media screen and (max-width:750px){
+.bookmark{
+  flex-direction: column;
+}
+}

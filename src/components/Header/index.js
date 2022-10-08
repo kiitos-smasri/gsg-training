@@ -1,9 +1,9 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 import ListItems from "./ListItems";
 
 const Header = () => {
   return (
-    <div className="header-container">
+    <div className={styles.headerContainer}>
       <ListItems />
 
       <div>Right icons</div>

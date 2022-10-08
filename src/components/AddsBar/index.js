@@ -1,8 +1,8 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 
 const AddsBar = () => {
   return (
-    <div className="add-bar-container">
+    <div className={styles.addBarContainer}>
       Free shipping for orders above USD 150
     </div>
   );
