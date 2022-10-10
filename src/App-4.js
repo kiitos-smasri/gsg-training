@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import ProductCard from "./components/ProductCard";
 
-const App = () => {
+const App = async () => {
   const dataArray = [
     {
       name: "Women Tshirt",
@@ -16,10 +16,10 @@ const App = () => {
     },
   ];
 
-  const handleClick = () => {
-    console.log("hello");
+  const handleClick = (ind) => {
+    alert(JSON.stringify(dataArray[ind]));
+    console.log("Item clicked" + ind);
   };
-
   return (
     <section className="product_section layout_padding">
       <div className="container">
@@ -30,17 +30,8 @@ const App = () => {
         </div>
         <div className="row">
           {dataArray.map((item, index) => (
-            <ProductCard {...item} btnClick={handleClick} index={index}>
-              <div>
-                <div>Hello New Div</div>
-                <a>Go to cart</a>
-              </div>
-            </ProductCard>
+            <ProductCard {...item} btnClick={handleClick} index={index} />
           ))}
-        </div>
-
-        <div className="btn-box">
-          <a href="">View All products</a>
         </div>
       </div>
     </section>
