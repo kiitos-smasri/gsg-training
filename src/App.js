@@ -16,7 +16,8 @@ const App = () => {
     },
   ];
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault();
     console.log("hello");
   };
 
@@ -30,7 +31,12 @@ const App = () => {
         </div>
         <div className="row">
           {dataArray.map((item, index) => (
-            <ProductCard {...item} btnClick={handleClick} index={index}>
+            <ProductCard
+              {...item}
+              btnClick={handleClick}
+              index={index}
+              key={index}
+            >
               <div>
                 <div>Hello New Div</div>
                 <a>Go to cart</a>
@@ -40,7 +46,9 @@ const App = () => {
         </div>
 
         <div className="btn-box">
-          <a href="">View All products</a>
+          <a href="" onClick={handleClick}>
+            View All products
+          </a>
         </div>
       </div>
     </section>
