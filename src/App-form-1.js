@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import ProductCard from "./components/ProductCard";
 
 const App = () => {
+  let counter = 0;
+
   const [num, setNum] = useState(0);
 
   const handleSubmit = (event) => {

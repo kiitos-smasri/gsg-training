@@ -6,10 +6,10 @@ const ProductCard = ({ name, price, img, btnClick, index, children }) => {
       <div className="box">
         <div className="option_container">
           <div className="options">
-            <a className="option1" onClick={() => btnClick(index)}>
+            <a className="option1" onClick={(event) => btnClick(event, index)}>
               Add to Cart
             </a>
-            <a className="option2" onClick={() => btnClick(index)}>
+            <a className="option2" onClick={(event) => btnClick(event, index)}>
               Buy Now
             </a>
           </div>
