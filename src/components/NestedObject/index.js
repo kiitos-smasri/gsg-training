@@ -7,35 +7,38 @@ export default function Form() {
       title: "Blue Nana",
       city: "Hamburg",
       image: "https://i.imgur.com/Sd1AgUOm.jpg",
+      address: {
+        street: "test",
+      },
     },
   });
 
-  function handleNameChange(e) {
+  const handleNameChange = (event) => {
     setPerson({
       ...person,
-      name: e.target.value,
+      name: event.target.value,
     });
-  }
+  };
 
-  function handleTitleChange(e) {
+  const handleTitleChange = (event) => {
     setPerson({
       ...person,
       artwork: {
         ...person.artwork,
-        title: e.target.value,
+        title: event.target.value,
       },
     });
-  }
+  };
 
-  function handleCityChange(e) {
+  const handleCityChange = (event) => {
     setPerson({
       ...person,
       artwork: {
         ...person.artwork,
-        city: e.target.value,
+        city: event.target.value,
       },
     });
-  }
+  };
 
   function handleImageChange(e) {
     setPerson({

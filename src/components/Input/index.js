@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Form() {
+export default function Input() {
   const [isSent, setIsSent] = useState(false);
   const [message, setMessage] = useState("Hi!");
   if (isSent) {
@@ -14,7 +14,7 @@ export default function Form() {
         sendMessage(message);
       }}
     >
-      <textarea
+      <input
         placeholder="Message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}

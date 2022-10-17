@@ -1,27 +1,25 @@
 import "./App.css";
 import React, { useState } from "react";
-import ProductCard from "./components/ProductCard";
+import ImmerObject from "./components/ImmerObject";
 
 const App = () => {
-  const [num, setNum] = useState(0);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("hello", num);
-  };
-
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type={"text"}
-          value={num}
-          onChange={(e) => setNum(e.target.value)}
-        />
-        <button type="submit">submit</button>
-      </form>
-    </>
-  );
+  return <ImmerObject />;
 };
 
 export default App;
+
+/**
+ * Objects -> Moving Dots
+ * Form input -> Input
+ * Editing Objects -> Form
+ * Nested Objects -> Nested Objects
+ * Use Immer -> ImmerObject
+ * Exercise -> ScoreBoard
+ * // Array state
+ * Adding/removing to array -> List
+ * Transforming array -> Shape
+ * Replacing items in array -> CountryList
+ * Inserting into array -> InsertList
+ * Updating object in array -> BucketList
+ * Exercise -> ShoppingCart
+ */
