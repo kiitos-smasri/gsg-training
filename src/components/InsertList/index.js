@@ -12,13 +12,10 @@ export default function List() {
   const [artists, setArtists] = useState(initialArtists);
 
   function handleClick() {
-    const insertAt = 1; // Could be any index
+    const insertAt = 2;
     const nextArtists = [
-      // Items before the insertion point:
       ...artists.slice(0, insertAt),
-      // New item:
       { id: nextId++, name: name },
-      // Items after the insertion point:
       ...artists.slice(insertAt),
     ];
     setArtists(nextArtists);

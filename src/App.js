@@ -1,20 +1,21 @@
-import "./App.css";
-import React, { useState } from "react";
-import ImmerObject from "./components/ImmerObject";
+import { useState } from "react";
 
-const App = () => {
-  return <ImmerObject />;
-};
+function Cup({ guest }) {
+  return <h2>Tea cup for guest #{guest}</h2>;
+}
 
-export default App;
+export default function TeaSet() {
+  return (
+    <>
+      <Cup guest={1} />
+      <Cup guest={2} />
+      <Cup guest={3} />
+      <Cup guest={4} />
+    </>
+  );
+}
 
 /**
- * Objects -> Moving Dots
- * Form input -> Input
- * Editing Objects -> Form
- * Nested Objects -> Nested Objects
- * Use Immer -> ImmerObject
- * Exercise -> ScoreBoard
  * // Array state
  * Adding/removing to array -> List
  * Transforming array -> Shape
@@ -22,4 +23,5 @@ export default App;
  * Inserting into array -> InsertList
  * Updating object in array -> BucketList
  * Exercise -> ShoppingCart
+ * exercise-pure-1
  */

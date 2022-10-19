@@ -4,7 +4,7 @@ let initialCounters = [0, 0, 0];
 
 export default function CounterList() {
   const [counters, setCounters] = useState(initialCounters);
-
+  //counters = [0,0,0]
   function handleIncrementClick(index) {
     const nextCounters = counters.map((c, i) => {
       if (i === index) {

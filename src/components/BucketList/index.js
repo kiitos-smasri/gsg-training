@@ -15,10 +15,8 @@ export default function BucketList() {
     setMyList(
       myList.map((artwork) => {
         if (artwork.id === artworkId) {
-          // Create a *new* object with changes
           return { ...artwork, seen: nextSeen };
         } else {
-          // No changes
           return artwork;
         }
       })
@@ -43,8 +41,10 @@ export default function BucketList() {
     <>
       <h1>Art Bucket List</h1>
       <h2>My list of art to see:</h2>
+
       <ItemList artworks={myList} onToggle={handleToggleMyList} />
       <h2>Your list of art to see:</h2>
+
       <ItemList artworks={yourList} onToggle={handleToggleYourList} />
     </>
   );
