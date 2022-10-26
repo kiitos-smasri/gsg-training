@@ -4,6 +4,7 @@ const Reservation = () => {
   const [data, setData] = useState({
     isGoing: true,
     numberOfGuests: 2,
+    userName: "Sawsan",
   });
 
   const handleInputChange = (event) => {
@@ -12,9 +13,11 @@ const Reservation = () => {
     const name = target.name;
 
     setData({
+      ...data,
       [name]: value,
     });
   };
+
   return (
     <form>
       <label>
@@ -33,6 +36,15 @@ const Reservation = () => {
           name="numberOfGuests"
           type="number"
           value={data.numberOfGuests}
+          onChange={handleInputChange}
+        />
+      </label>
+      <label>
+        User Name:
+        <input
+          name="userName"
+          type="text"
+          value={data.userName}
           onChange={handleInputChange}
         />
       </label>

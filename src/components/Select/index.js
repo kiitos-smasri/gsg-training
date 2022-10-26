@@ -1,28 +1,36 @@
 import { useState } from "react";
 
+const optionsData = ["grapefruit", "lime", "coconut", "mango"];
 const FlavorForm = () => {
-  const [data, setData] = useState({ value: "coconut" });
+  const [data, setData] = useState("coconut");
+  const [fruit, setFruit] = useState("");
+  const [options, setOptions] = useState(optionsData);
 
   const handleChange = (event) => {
-    setData({ value: event.target.value });
+    console.log(event.target.value);
+    setData(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    alert("Your favorite flavor is: " + data.value);
     event.preventDefault();
+    setOptions([...options, fruit]);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Pick your favorite flavor:
-        <select value={data.value} onChange={handleChange}>
-          <option value="grapefruit">Grapefruit</option>
-          <option value="lime">Lime</option>
-          <option value="coconut">Coconut</option>
-          <option value="mango">Mango</option>
+        <select value={data} onChange={handleChange}>
+          {options.map((option) => (
+            <option value={option}>{option}</option>
+          ))}
         </select>
       </label>
+      <input
+        type="text"
+        value={fruit}
+        onChange={(e) => setFruit(e.target.value)}
+      />
       <input type="submit" value="Submit" />
     </form>
   );

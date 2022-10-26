@@ -1,35 +1,36 @@
 import React from "react";
-
+import axios from "axios";
 class SectionHeader extends React.Component {
   state = {
     value: "tesssssst",
+    products: [],
   };
+
   handleClick = () => {
     this.setState({ value: "nnnnn" });
     console.log(this.state);
   };
 
-  /**** Mounting */
-  //called before render component
-  componentWillMount() {
-    console.log("will mount");
+  async getData() {
+    const result = await axios.get("https://dummyjson.com/products");
+    this.setState({ products: result?.data?.products });
   }
+
   //after render component
   componentDidMount() {
-    console.log("component mount");
+    //Mounting Step in component lifecycle
+    this.getData();
+    console.log("component did mount", this.state.products);
   }
 
-  /**Updating */
-  //before component re-render
-  componentWillUpdate() {}
-
-  //After re-render
+  // // //After re-render
   componentDidUpdate() {}
 
-  //Before the removal of the component from the DOM,
-  componentWillUnmount() {
-    console.log("component will unmount");
-  }
+  // // //Before the removal of the component from the DOM,
+  // componentWillUnmount() {
+  //   console.log("component will unmount");
+  // }
+
   render() {
     return (
       <div
