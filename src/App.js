@@ -1,34 +1,24 @@
 import { useState } from "react";
-import SectionHeader from "./components/SectionHeader";
+import StopWatch from "./components/StopWatch";
 
 export const App = () => {
-  return <SectionHeader />;
+  return <StopWatch />;
 };
 
 export default App;
+
 /**
- * Lifting state up (Sharing state between components)
- * Resetting state - reset-state.js
- * Forms - input, textarea - select - MultiInputs
- * Class Components -> AddsBar , Product Card ,  Gallery
- * Exercise -> SectionHeader,Shape, ScoreBoard
- * State lifecycle https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-mounting
-updating
-unmounting.
-
-back to reset state with sectionHeader in class component, to see lifecycle
-import React, { useState } from "react";
-const App = () => {
-  const [val, setVal] = useState(0);
-
-  return (
-    <div onClick={() => setVal(val + 1)}>
-      <SectionHeader key={val} />
-    </div>
-  );
-};
-export default App;
-
- * React Awesome components 
+ * React Hooks
+ * NOTES about setState & componentDidUpdate in SectionHeader
+ * 1. useState
+ * 2. useRef
+ *  - Ref's don't re-render component -> Counter.js
+ *  - Storing TimerId's -> Stopwatch.js
+ *  - exercise-1 & exercise-2
+ * 3. Manipulating the DOM with Refs -InputFocus.js,ScrollView.js
+ * 4- Forwarding Refs -> RefForward.js
+ * 5- Avoid changing DOM nodes managed by React -> Toggle
+ *   - exercise-3 & exercise-4 & exercise-5
+ *
+ * React Awesome components
  */

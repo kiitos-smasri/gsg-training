@@ -6,9 +6,19 @@ class SectionHeader extends React.Component {
     products: [],
   };
 
+  counter = 0;
   handleClick = () => {
     this.setState({ value: "nnnnn" });
     console.log(this.state);
+    // Wrong
+    // this.setState({
+    //   counter: this.state.counter + this.props.increment,
+    // });
+
+    // Correct
+    // this.setState((state, props) => ({
+    //   counter: state.counter + props.increment,
+    // }));
   };
 
   async getData() {
@@ -24,8 +34,13 @@ class SectionHeader extends React.Component {
   }
 
   // // //After re-render
-  componentDidUpdate() {}
 
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.userID !== prevProps.userID) {
+      this.fetchData(this.props.userID);
+    }
+  }
   // // //Before the removal of the component from the DOM,
   // componentWillUnmount() {
   //   console.log("component will unmount");
@@ -37,6 +52,7 @@ class SectionHeader extends React.Component {
         className="heading_container heading_center"
         onClick={this.handleClick}
       >
+        <div>{this.counter}</div>
         <h2>Why Shop With Us</h2>
       </div>
     );
