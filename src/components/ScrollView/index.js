@@ -6,27 +6,15 @@ export default function CatFriends() {
   const thirdCatRef = useRef(null);
 
   function handleScrollToFirstCat() {
-    firstCatRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    firstCatRef.current.scrollIntoView();
   }
 
   function handleScrollToSecondCat() {
-    secondCatRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    secondCatRef.current.scrollIntoView();
   }
 
   function handleScrollToThirdCat() {
-    thirdCatRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    thirdCatRef.current.scrollIntoView();
   }
 
   return (
@@ -38,6 +26,24 @@ export default function CatFriends() {
       </nav>
       <div>
         <ul>
+          <li>
+            <img src="https://placekitten.com/g/200/200" alt="Tom" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/300/200" alt="Maru" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/250/200" alt="Jellylorum" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/200/200" alt="Tom" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/300/200" alt="Maru" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/250/200" alt="Jellylorum" />
+          </li>
           <li>
             <img
               src="https://placekitten.com/g/200/200"

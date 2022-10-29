@@ -2,7 +2,13 @@ import { useState, useRef } from "react";
 
 export default function Counter() {
   const [show, setShow] = useState(true);
-  const ref = useRef(null);
+  const paragraphRef = useRef(null);
+
+  /**
+   * {
+   * current: null
+   * }
+   */
 
   return (
     <div>
@@ -15,12 +21,12 @@ export default function Counter() {
       </button>
       <button
         onClick={() => {
-          ref.current.remove();
+          paragraphRef.current.remove();
         }}
       >
         Remove from the DOM
       </button>
-      {show && <p ref={ref}>Hello world</p>}
+      {show && <p ref={paragraphRef}>Hello world</p>}
     </div>
   );
 }

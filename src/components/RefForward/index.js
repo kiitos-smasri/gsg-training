@@ -1,13 +1,19 @@
-import { useRef } from "react";
+import { useRef, forwardRef } from "react";
 
-function MyInput(props) {
-  return <input {...props} />;
-}
+const MyInput = forwardRef((props, refInput) => {
+  return (
+    <div>
+      <input {...props} ref={refInput} />
+      <div>Hello</div>
+    </div>
+  );
+});
 
 export default function MyForm() {
   const inputRef = useRef(null);
 
   function handleClick() {
+    console.log(inputRef.current);
     inputRef.current.focus();
   }
 

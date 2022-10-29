@@ -7,6 +7,7 @@ export default function Stopwatch() {
   const timerRef = useRef(Date.now());
 
   function handleStart() {
+    console.log(timerRef);
     setStartTime(timerRef.current);
     setNow(Date.now());
 
@@ -27,7 +28,7 @@ export default function Stopwatch() {
   let secondsPassed = 0;
 
   if (startTime != null && now != null) {
-    secondsPassed = (now - startTime) / 1000;
+    secondsPassed = Math.abs((now - startTime) / 1000);
   }
 
   return (
