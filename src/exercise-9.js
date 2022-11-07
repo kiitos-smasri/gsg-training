@@ -8,13 +8,22 @@
  */
 
 import { useState, useEffect } from "react";
-import { fetchBio } from "./api.js";
+
+export async function fetchBio(person) {
+  const delay = person === "Bob" ? 2000 : 200;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("This is " + person + "’s bio.");
+    }, delay);
+  });
+}
 
 export default function Page() {
   const [person, setPerson] = useState("Alice");
   const [bio, setBio] = useState(null);
 
   useEffect(() => {
+    console.log("Hello");
     setBio(null);
     fetchBio(person).then((result) => {
       setBio(result);

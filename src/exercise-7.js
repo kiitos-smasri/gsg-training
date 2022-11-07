@@ -17,8 +17,8 @@ export default function MyInput({ shouldFocus, value, onChange }) {
 
   // TODO: call focus() only if shouldFocus is true.
   useEffect(() => {
-    ref.current.focus();
-  }, []);
+    shouldFocus && ref.current.focus();
+  }, [shouldFocus]);
 
   return <input ref={ref} value={value} onChange={onChange} />;
 }

@@ -1,77 +1,68 @@
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-function Playground() {
-  const [text, setText] = useState("a");
+const productData = {
+  id: 1,
+  title: "iPhone 9",
+  description: "An apple mobile which is nothing like apple",
+  price: 549,
+  discountPercentage: 12.96,
+  rating: 4.69,
+  stock: 94,
+  brand: "Apple",
+  category: "smartphones",
+  thumbnail: "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
+  images: [
+    "https://dummyjson.com/image/i/products/1/1.jpg",
+    "https://dummyjson.com/image/i/products/1/2.jpg",
+    "https://dummyjson.com/image/i/products/1/3.jpg",
+    "https://dummyjson.com/image/i/products/1/4.jpg",
+    "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
+  ],
+  isInCart: false,
+};
 
-  useEffect(() => {
-    function onTimeout() {
-      console.log("⏰ " + text);
-    }
+export function ProductPage({ product, addToCart, changePrice }) {
+  function handleBuyClick() {
+    addToCart(product);
+    alert(`Added ${product.title} to the shopping cart!`);
+  }
 
-    console.log('🔵 Schedule "' + text + '" log');
-    const timeoutId = setTimeout(onTimeout, 3000);
-
-    return () => {
-      console.log('🟡 Cancel "' + text + '" log');
-      clearTimeout(timeoutId);
-    };
-  }, [text]);
-
+  function handleChangePrice() {
+    changePrice(product);
+  }
   return (
     <>
-      <label>
-        What to log:{" "}
-        <input value={text} onChange={(e) => setText(e.target.value)} />
-      </label>
-      <h1>{text}</h1>
+      <button onClick={handleBuyClick}>Buy Product</button>
+      <button onClick={handleChangePrice}>Change Price</button>
     </>
   );
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [product, setProductData] = useState(productData);
+
+  useEffect(() => {
+    axios.get("/products");
+  }, []);
+
+  const handleAddToCart = () => {
+    setProductData({ ...product, isInCart: true });
+    console.log("Product Added to cart", { product });
+  };
+  const handleChangePrice = () => {
+    setProductData({ ...product, price: 99 });
+  };
   return (
     <>
-      <button onClick={() => setShow(!show)}>
-        {show ? "Unmount" : "Mount"} the component
-      </button>
-      {show && <hr />}
-      {show && <Playground />}
+      <ProductPage
+        product={product}
+        addToCart={handleAddToCart}
+        changePrice={handleChangePrice}
+      />
     </>
   );
 }
-
-// import { useState, useRef, useEffect } from "react";
-
-// function VideoPlayer({ src, isPlaying }) {
-//   const ref = useRef(null);
-
-//   useEffect(() => {
-//     if (isPlaying) {
-//       ref.current.play();
-//     } else {
-//       ref.current.pause();
-//     }
-//   });
-
-//   return <video ref={ref} src={src} loop playsInline />;
-// }
-
-// export default function App() {
-//   const [isPlaying, setIsPlaying] = useState(false);
-//   return (
-//     <>
-//       <button onClick={() => setIsPlaying(!isPlaying)}>
-//         {isPlaying ? "Pause" : "Play"}
-//       </button>
-//       <VideoPlayer
-//         isPlaying={isPlaying}
-//         src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-//       />
-//     </>
-//   );
-// }
-
 /**
  * React Hooks
  * 3. Manipulating the DOM with Refs -InputFocus.js,ScrollView.js
