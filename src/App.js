@@ -47,7 +47,7 @@ const App = () => {
 
         <div className="btn-box">
           <a href="" onClick={handleClick}>
-            View All products
+            View All products ok
           </a>
         </div>
       </div>
