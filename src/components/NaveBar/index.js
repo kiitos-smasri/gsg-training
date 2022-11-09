@@ -7,6 +7,7 @@ const NaveBar = () => {
         <div>
             <div>Hello</div>
             <div>Hello2</div>
+            <div>Hello3</div>
         </div>
 
 
