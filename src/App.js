@@ -1,37 +1,65 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./App.css";
-import NaveBar from "./components/NaveBar";
-const App = () => {
-  return (
-    <section className="product_section layout_padding">
-      <div className="container">
-        <div className="heading_container heading_center">
-          <h2>
-            Our <span>products</span>
-          </h2>
-        </div>
-        <div className="row">
-          {dataArray.map((item, index) => (
-            <ProductCard
-              {...item}
-              btnClick={handleClick}
-              index={index}
-              key={index}
-            >
-              <div>
-                <div>Hello New Div</div>
-                <a>Go to cart</a>
-              </div>
-            </ProductCard>
-          ))}
-        </div>
 
-        <div className="btn-box">
-          <a href="" onClick={handleClick}>
-            View All products ok
-          </a>
-        </div>
-      </div>
-    </section>
+function App() {
+  const [query, setQuery] = useState("");
+  return (
+    <>
+      <input value={query} onChange={(e) => setQuery(e.target.value)} />
+      <SearchResults query={query} />
+    </>
   );
-};
+}
+
+function SearchResults({ query }) {
+  const [results, setResults] = useState({});
+
+  //console.log("search REsults", { results });
+
+  useEffect(() => {
+    let ignore = false;
+
+    axios
+      .get(`https://demo.dataverse.org/api/search?q=${query}`)
+      .then((response) => {
+        if (!ignore) {
+          setResults(response);
+        }
+      });
+    return () => {
+      console.log("cleanup", ignore);
+      ignore = true;
+    };
+  }, [query]);
+
+  return <></>;
+}
+
 export default App;
+
+//Continue useEffect
+// useEffect-exercise.js
+//useEffect-exercise-2.js
+
+//React Router
+//install react-router-dom
+//router-1.js
+
+//useMemo
+//The React useMemo Hook returns a memoized value.
+//The useMemo Hook only runs when one of its dependencies update.
+//useMemo.js
+//useMemo-exercise.js
+
+//React Memo
+//Using memo will cause React to skip rendering a component if its props have not changed.
+//This can improve performance.
+// memo.js
+
+// useCallback
+//The React useCallback Hook returns a memoized callback function.
+//The useCallback and useMemo Hooks are similar.
+//The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
+//useCallback.js
+//useCallback-exercise.js
