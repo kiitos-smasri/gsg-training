@@ -11,11 +11,8 @@ This is done with an Effect inside EditContact.js.
 Remove this Effect. Find another way to reset the form when savedContact.id changes.
  */
 
-
 //App.js
-import { useState } from "react";
-import ContactList from "./ContactList.js";
-import EditContact from "./EditContact.js";
+import { useState, useEffect } from "react";
 
 export default function ContactManager() {
   const [contacts, setContacts] = useState(initialContacts);
@@ -53,35 +50,29 @@ const initialContacts = [
 ];
 
 //ContactList
-export default function ContactList({
-  contacts,
-  selectedId,
-  onSelect
-}) {
+export function ContactList({ contacts, selectedId, onSelect }) {
   return (
     <section>
       <ul>
-        {contacts.map(contact =>
+        {contacts.map((contact) => (
           <li key={contact.id}>
-            <button onClick={() => {
-              onSelect(contact.id);
-            }}>
-              {contact.id === selectedId ?
-                <b>{contact.name}</b> :
-                contact.name
-              }
+            <button
+              onClick={() => {
+                onSelect(contact.id);
+              }}
+            >
+              {contact.id === selectedId ? <b>{contact.name}</b> : contact.name}
             </button>
           </li>
-        )}
+        ))}
       </ul>
     </section>
   );
 }
 
 //EditContact
-import { useState, useEffect } from 'react';
 
-export default function EditContact({ savedContact, onSave }) {
+export function EditContact({ savedContact, onSave }) {
   const [name, setName] = useState(savedContact.name);
   const [email, setEmail] = useState(savedContact.email);
 
@@ -93,35 +84,39 @@ export default function EditContact({ savedContact, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Name:{" "}
         <input
           type="text"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
       </label>
       <label>
-        Email:{' '}
+        Email:{" "}
         <input
           type="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-      <button onClick={() => {
-        const updatedData = {
-          id: savedContact.id,
-          name: name,
-          email: email
-        };
-        onSave(updatedData);
-      }}>
+      <button
+        onClick={() => {
+          const updatedData = {
+            id: savedContact.id,
+            name: name,
+            email: email,
+          };
+          onSave(updatedData);
+        }}
+      >
         Save
       </button>
-      <button onClick={() => {
-        setName(savedContact.name);
-        setEmail(savedContact.email);
-      }}>
+      <button
+        onClick={() => {
+          setName(savedContact.name);
+          setEmail(savedContact.email);
+        }}
+      >
         Reset
       </button>
     </section>
