@@ -1,18 +1,7 @@
 //In this example, the Todos component re-renders even when the todos have not changed.
 
 import React, { useState } from "react";
-
-const Todos = ({ todos }) => {
-  console.log("child render");
-  return (
-    <>
-      <h2>My Todos</h2>
-      {todos.map((todo, index) => {
-        return <p key={index}>{todo}</p>;
-      })}
-    </>
-  );
-};
+import TODO from "./components/Todo";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -24,7 +13,7 @@ const App = () => {
 
   return (
     <>
-      <Todos todos={todos} />
+      <TODO todos={todos} />
       <hr />
       <div>
         Count: {count}
@@ -35,5 +24,3 @@ const App = () => {
 };
 
 export default App;
-
-//export default memo(Todo)
