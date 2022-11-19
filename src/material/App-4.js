@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import ProductCard from "./components/ProductCard";
+import ProductCard from "../components/ProductCard";
 
 const App = async () => {
   const dataArray = [

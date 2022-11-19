@@ -1,7 +1,7 @@
 //In this example, the Todos component re-renders even when the todos have not changed.
 
 import React, { useState } from "react";
-import TODO from "./components/Todo";
+import TODO from "../components/Todo";
 
 const App = () => {
   const [count, setCount] = useState(0);
