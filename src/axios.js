@@ -1,9 +1,13 @@
 import axios from "axios";
 
-const axiosInstance = (() => {
+export const axiosInstance = (() => {
   return axios.create({
-    baseURL: "http://restapi.adequateshop.com",
+    baseURL: "https://dummyjson.com",
   });
 })();
 
-export default axiosInstance;
+export const axiosInstance2 = (() => {
+  return axios.create({
+    baseURL: "https://fakestoreapi.com",
+  });
+})();

@@ -1,5 +1,5 @@
 // This component is written to demonstrate the useContext Hook.
-import React, { useContext } from "react";
+import React, { useContext, createContext } from "react";
 
 const blogInfo = {
   React: {
@@ -12,17 +12,20 @@ const blogInfo = {
   },
 };
 
+const BlogContext = createContext(null);
+
 function ParentComponent() {
   return (
-    <>
+    <BlogContext.Provider value={blogInfo}>
       <h2>Use Context Example Component</h2>
-      <BlogDetailComponent blogDetails={blogInfo} />
-      <MyOtherBlogInfoComponent blogDetails={blogInfo} />
-    </>
+      <BlogDetailComponent />
+      <MyOtherBlogInfoComponent />
+    </BlogContext.Provider>
   );
 }
 
-function BlogDetailComponent({ blogDetails }) {
+function BlogDetailComponent() {
+  const blogDetails = useContext(BlogContext);
   return (
     <div>
       <h3>React Blog Details</h3>
@@ -32,7 +35,8 @@ function BlogDetailComponent({ blogDetails }) {
   );
 }
 
-function MyOtherBlogInfoComponent({ blogDetails }) {
+function MyOtherBlogInfoComponent() {
+  const blogDetails = useContext(BlogContext);
   return (
     <div>
       <h3>GraphQL Blog Details</h3>

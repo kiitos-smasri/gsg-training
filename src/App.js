@@ -1,54 +1,41 @@
-import { useState } from "react";
+//import axios from "axios";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
+import useData from "./hooks/useData";
+import { axiosInstance, axiosInstance2 } from "./axios";
 
-function App() {
-  const [user, setUser] = useState("Jesse Hall");
+const Home = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axiosInstance2.get("/products").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
+
+  const addNewProduct = async () => {
+    const newProduct = await axiosInstance2.post("/products", {
+      title: "sawsan product",
+      price: 13.5,
+      description: "lorem ipsum set",
+      image: "https://i.pravatar.cc",
+      category: "electronic",
+    });
+
+    setProducts([...products, newProduct.data]);
+  };
 
   return (
     <>
-      <h1>{`Hello ${user}!`}</h1>
-      <Component2 user={user} />
+      <button onClick={addNewProduct}>Add New</button>
+      {products?.map((items) => (
+        <div>{items.title}</div>
+      ))}
     </>
   );
-}
+};
 
-function Component2({ user }) {
-  return (
-    <>
-      <h1>Component 2</h1>
-      <Component3 user={user} />
-    </>
-  );
-}
-
-function Component3({ user }) {
-  return (
-    <>
-      <h1>Component 3</h1>
-      <Component4 user={user} />
-    </>
-  );
-}
-
-function Component4({ user }) {
-  return (
-    <>
-      <h1>Component 4</h1>
-      <Component5 user={user} />
-    </>
-  );
-}
-
-function Component5({ user }) {
-  return (
-    <>
-      <h1>Component 5</h1>
-      <h2>{`Hello ${user} again!`}</h2>
-    </>
-  );
-}
-
-export default App;
+export default Home;
 
 // useEffect recap
 // React Context & useContext Hook -> useContext.js
@@ -144,3 +131,7 @@ function tasksReducer(tasks, action) {
 // Step 3: Use the reducer from your component
 // replace const [tasks, setTasks] = useState(initialTasks); with const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 // Exercises -> useReducerExercises
+
+// Custom Hooks -> Hooks are reusable functions.
+// Use Context into Hooks
+//
