@@ -1,47 +1,47 @@
 import React from "react";
 
-const Button = ({ onClick, text, style }) => {
+const Button = ({ onClick, text, disabled, style }) => {
   return (
-    <button onClick={onClick} style={style}>
+    <button onClick={onClick} style={style} disabled={disabled}>
       {text}
     </button>
   );
 };
 
-const buttonWithStyles = (CompParam, name = "default") => {
+const buttonWithStyles = (CompParam, type = "default") => {
   const colors = [
     {
-      name: "default",
+      type: "default",
       backgroundColor: "#e7e7e7",
       color: "#000000",
     },
     {
-      name: "react",
+      type: "react",
       backgroundColor: "#61dbfb",
       color: "#ffffff",
     },
     {
-      name: "success",
+      type: "success",
       backgroundColor: "#4CAF50",
       color: "#ffffff",
     },
     {
-      name: "info",
+      type: "info",
       backgroundColor: "#2196F3",
       color: "#ffffff",
     },
     {
-      name: "warning",
+      type: "warning",
       backgroundColor: "#ff9800",
       color: "#ffffff",
     },
     {
-      name: "danger",
+      type: "danger",
       backgroundColor: "#f44336",
       color: "#ffffff",
     },
   ];
-  const { backgroundColor, color } = colors.find((c) => c.name === name);
+  const { backgroundColor, color } = colors.find((c) => c.type === type);
 
   const buttonStyles = {
     backgroundColor,
@@ -53,6 +53,7 @@ const buttonWithStyles = (CompParam, name = "default") => {
     fontSize: "1.25rem",
     color,
   };
+
   return (props) => {
     return <CompParam {...props} style={buttonStyles} />;
   };
@@ -92,3 +93,7 @@ const App = () => {
 };
 
 export default App;
+
+// HOC -> a higher-order component is a function that takes a component and returns a new component.
+// example -> const EnhancedComponent = higherOrderComponent(WrappedComponent);
+// JSS
